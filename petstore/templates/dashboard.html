@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1 align="center">Dashboard</h1>
+
+        <table border="2" align="center">
+            <tr>
+                <th>Sr No.</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Details</th>
+                <th>Category</th>
+                <th>image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                
+            </tr>
+            {% for x in data %}
+            <tr>
+                
+                <td>{{ forloop.counter }}</td>
+                <td>{{ x.name }}</td>
+                <td>{{ x.price }}</td>
+                <td>{{ x.details }}</td>
+                <td>{{ x.category }}</td>
+                <td><img src = "{{x.image.url}}" style="width: auto;"></td>
+                <td><a href="/edit/{{ x.id }}">Update</a></td>
+                <td><a href="/delete/{{ x.id }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+</html>
